@@ -17,13 +17,13 @@ const notification = {
 const getBTC = () => {
   axios
     .get(
-      "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=EUR"
+      "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD"
     )
     .then(res => {
-      const cryptos = res.data.BTC.EUR;
-      price.innerHTML = "€" + cryptos.toLocaleString("en");
+      const cryptos = res.data.BTC.USD;
+      price.innerHTML = "$" + cryptos.toLocaleString("en");
 
-      if (targetPriceVal < res.data.BTC.EUR) {
+      if (targetPriceVal < res.data.BTC.USD) {
         const myNotification = new window.Notification(
           notification.title,
           notification
@@ -55,5 +55,5 @@ notifyBtn.addEventListener("click", e => {
 
 ipcRenderer.on("targetPriceVal", (e, arg) => {
   targetPriceVal = Number(arg);
-  targetPrice.innerHTML = " €" + targetPriceVal.toLocaleString("en");
+  targetPrice.innerHTML = " $" + targetPriceVal.toLocaleString("en");
 });
