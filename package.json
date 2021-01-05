@@ -12,7 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "8.1.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "electron-installer-snap": "^5.0.0",
     "electron-packager": "^14.2.1"
   }
